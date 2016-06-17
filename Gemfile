@@ -11,6 +11,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'rails_12factor'
+
 
 # gem 'therubyracer', platforms: :ruby
 
