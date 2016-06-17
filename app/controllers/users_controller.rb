@@ -1,4 +1,5 @@
 class UsersController < AuthenticatedController
+  before_action :authorize!
   before_action :set_user, only: [:show, :lock]
 
   # GET /users
@@ -15,13 +16,21 @@ class UsersController < AuthenticatedController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params[:user]
-    end
+  def authorize!
+    head 403 unless admin?
+  end
+
+  def admin?
+    current_user.admin?
+  end
+
+  def set_use
+    @user = User.find(params[:id])
+  end
+
+
+  def user_params
+    params[:user]
+  end
 end
