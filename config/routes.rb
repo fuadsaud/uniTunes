@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users do
+  resources :users, only: :index, :show do
     member do
       get :lock
     end
