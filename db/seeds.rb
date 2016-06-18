@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!({
+User.create({
   first_name: 'John',
   last_name: 'Doe',
   email: 'admin@unitunes.com',
@@ -16,3 +16,8 @@ User.create!({
   confirmed_at: Time.current,
   wallet: Wallet.create
 })
+
+Category.create!([
+  { name: 'Fantasy' },
+  { name: 'Sci-Fi' }
+])
