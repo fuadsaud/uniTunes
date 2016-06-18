@@ -53,6 +53,6 @@ class MediaController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def medium_params
-      params.require(:medium).permit(:title, :description, :price_centavos, :category_id)
+      params.require(:medium).permit(:title, :description, :price, :category_id)
     end
 end
