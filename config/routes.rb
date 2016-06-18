@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
+  root to: 'load_funds_transactions#index'
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if ENV_POLICY.allow?('LETTER_OPENER')
 end
