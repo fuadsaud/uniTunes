@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :purchases, only: [:index, :create]
   resources :load_funds_transactions
   resources :media
+  resources :catalog_media, only: :show
   resource :catalog, only: :show
 
   scope :admin, module: nil do
