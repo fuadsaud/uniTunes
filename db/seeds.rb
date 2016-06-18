@@ -12,5 +12,6 @@ User.create!({
   email: 'admin@unitunes.com',
   password: 'admin123',
   password_confirmation: 'admin123',
-  admin: true
+  admin: true,
+  wallet: Wallet.create
 })
