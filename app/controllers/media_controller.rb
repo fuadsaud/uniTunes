@@ -1,4 +1,4 @@
-class MediaController < ApplicationController
+class MediaController < AuthenticatedController
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
 
   # GET /media

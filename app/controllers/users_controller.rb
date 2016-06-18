@@ -1,5 +1,4 @@
 class UsersController < AuthenticatedController
-  before_action :authorize!
   before_action :set_user, only: [:show, :lock]
 
   # GET /users
@@ -16,14 +15,6 @@ class UsersController < AuthenticatedController
   end
 
   private
-
-  def authorize!
-    head 403 unless admin?
-  end
-
-  def admin?
-    current_user.admin?
-  end
 
   def set_user
     @user = User.find(params[:id])

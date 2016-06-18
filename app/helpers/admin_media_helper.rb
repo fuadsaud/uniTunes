@@ -1,0 +1,2 @@
+module AdminMediaHelper
+end
