@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
 
+  validates :admin, presence: true, single_admin: true
+
   def name
     "#{first_name} #{last_name}"
   end
