@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160618070506) do
   create_table "load_funds_transactions", force: :cascade do |t|
     t.integer  "amount_centavos", default: 0,     null: false
     t.string   "amount_currency", default: "BRL", null: false
-    t.integer  "wallet_id"
+    t.integer  "wallet_id",                       null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160618070506) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -60,9 +61,11 @@ ActiveRecord::Schema.define(version: 20160618070506) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wallets", force: :cascade do |t|
-    t.integer "balance_centavos", default: 0,     null: false
-    t.string  "balance_currency", default: "BRL", null: false
-    t.integer "user_id"
+    t.integer  "balance_centavos", default: 0,     null: false
+    t.string   "balance_currency", default: "BRL", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",                          null: false
   end
 
   add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
