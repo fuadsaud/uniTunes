@@ -4,7 +4,7 @@ gem 'rails', '4.2.5'
 gem 'pg'
 
 gem 'devise'
-
+gem 'dotenv-rails'
 gem 'money-rails'
 
 gem 'sass-rails', '~> 5.0'
