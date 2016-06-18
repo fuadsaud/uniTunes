@@ -4,21 +4,25 @@ class PurchasesController < AuthenticatedController
   end
 
   def create
-    result = PurchaseMedia.new.call(purchase_params: purchase_params)
+    result = PurchaseMedium.new.call(user: current_user, medium_id: medium_id_param)
 
     @medium = result.medium
 
-    if result.sucess?
-      redirect_to @medium, notice: 'Medium successfully purchased and added to you library'
+    if result.success?
+      redirect_to catalog_medium_path(@medium), notice: 'Medium successfully purchased and added to you library'
     else
-      redirect_to @medium, notice: 'There was a problem with you purchase'
+      redirect_to catalog_medium_path(@medium), notice: 'There was a problem with you purchase'
     end
   end
 
   private
 
+  def medium_id_param
+    purchase_params[:medium_id]
+  end
+
   def purchase_params
-    params(:purchase).permit(:medium_id)
+    params.require(:purchase).permit(:medium_id)
   end
 
   def scope
