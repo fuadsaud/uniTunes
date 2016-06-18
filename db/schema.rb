@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618171632) do
+ActiveRecord::Schema.define(version: 20160618184639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,18 @@ ActiveRecord::Schema.define(version: 20160618171632) do
 
   add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
   add_index "media", ["category_id"], name: "index_media_on_category_id", using: :btree
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "amount_centavos", default: 0,     null: false
+    t.string   "amount_currency", default: "BRL", null: false
+    t.integer  "medium_id",                       null: false
+    t.integer  "wallet_id",                       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "purchases", ["medium_id"], name: "index_purchases_on_medium_id", using: :btree
+  add_index "purchases", ["wallet_id"], name: "index_purchases_on_wallet_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false
@@ -88,5 +100,7 @@ ActiveRecord::Schema.define(version: 20160618171632) do
   add_foreign_key "load_funds_transactions", "wallets"
   add_foreign_key "media", "categories"
   add_foreign_key "media", "users", column: "author_id"
+  add_foreign_key "purchases", "media"
+  add_foreign_key "purchases", "wallets"
   add_foreign_key "wallets", "users"
 end

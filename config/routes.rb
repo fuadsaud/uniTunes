@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
+  resources :purchases, only: [:index, :create]
   resources :load_funds_transactions
   resources :media
 

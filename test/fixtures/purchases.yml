@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 
+  media_id: 
+  user_id: 
+
+two:
+  amount: 
+  media_id: 
+  user_id: 
