@@ -1,4 +1,4 @@
-class LoadFundsTransactionsController < ApplicationController
+class LoadFundsTransactionsController < AuthenticatedController
   before_action :set_load_funds_transaction, only: [:show, :destroy]
 
   # GET /load_funds_transactions
@@ -17,9 +17,13 @@ class LoadFundsTransactionsController < ApplicationController
 
   # POST /load_funds_transactions
   def create
-    @load_funds_transaction = scope.new(load_funds_transaction_params)
+    response = CreateLoadFundsTransaction.new(user: current_user).call(
+      amount: amount_param
+    )
 
-    if @load_funds_transaction.save
+    @load_funds_transaction = response.load_funds_transaction
+
+    if response.success?
       redirect_to @load_funds_transaction, notice: 'Load funds transaction was successfully created.'
     else
       render :new
@@ -40,6 +44,10 @@ class LoadFundsTransactionsController < ApplicationController
 
   def set_load_funds_transaction
     @load_funds_transaction = scope.find(params[:id])
+  end
+
+  def amount_param
+    load_funds_transaction_params[:amount]
   end
 
   def load_funds_transaction_params
