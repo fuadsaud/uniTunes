@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :purchases, only: [:index, :create]
   resources :load_funds_transactions
   resources :media
+  resource :catalog, only: :show
 
   scope :admin, module: nil do
     resources :purchases, only: [:index, :show]
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :update]
   end
 
-  root to: 'load_funds_transactions#index'
+  root to: redirect('/catalog')
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if ENV_POLICY.allow?('LETTER_OPENER')
 end
