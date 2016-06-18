@@ -13,6 +13,6 @@ class RegistrationsController < Devise::RegistrationsController
   def build_resource(*)
     super
 
-    resource.build_wallet
+    InitializeUser.new.call(user: resource)
   end
 end
