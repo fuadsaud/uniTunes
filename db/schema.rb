@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618170610) do
+ActiveRecord::Schema.define(version: 20160618171632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 20160618170610) do
     t.integer  "category_id",                    null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "author_id",                      null: false
   end
 
+  add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
   add_index "media", ["category_id"], name: "index_media_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -85,5 +87,6 @@ ActiveRecord::Schema.define(version: 20160618170610) do
 
   add_foreign_key "load_funds_transactions", "wallets"
   add_foreign_key "media", "categories"
+  add_foreign_key "media", "users", column: "author_id"
   add_foreign_key "wallets", "users"
 end

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     :trackable, :validatable, :lockable, :confirmable
 
   has_one :wallet
+  has_many :media, foreign_key: 'author_id'
 
   validates_presence_of :first_name, :last_name, :wallet
 

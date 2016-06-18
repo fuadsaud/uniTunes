@@ -21,9 +21,13 @@ class MediaController < ApplicationController
 
   # POST /media
   def create
-    @medium = Medium.new(medium_params)
+    result = CreateMedium.new.call(
+      medium_params: medium_params.merge(author_id: current_user.id)
+    )
 
-    if @medium.save
+    @medium = result.medium
+
+    if result.success?
       redirect_to @medium, notice: 'Medium was successfully created.'
     else
       render :new
@@ -46,13 +50,14 @@ class MediaController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medium
-      @medium = Medium.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def medium_params
-      params.require(:medium).permit(:title, :description, :price, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medium
+    @medium = Medium.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def medium_params
+    params.require(:medium).permit(:title, :description, :price, :category_id)
+  end
 end
