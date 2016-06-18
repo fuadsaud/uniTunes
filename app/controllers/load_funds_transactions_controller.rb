@@ -1,5 +1,5 @@
 class LoadFundsTransactionsController < AuthenticatedController
-  before_action :set_load_funds_transaction, only: [:show, :destroy]
+  before_action :set_load_funds_transaction, only: [:show]
 
   # GET /load_funds_transactions
   def index
@@ -28,12 +28,6 @@ class LoadFundsTransactionsController < AuthenticatedController
     else
       render :new
     end
-  end
-
-  # DELETE /load_funds_transactions/1
-  def destroy
-    @load_funds_transaction.destroy
-    redirect_to load_funds_transactions_url, notice: 'Load funds transaction was successfully destroyed.'
   end
 
   private
