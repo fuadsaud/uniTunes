@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Media</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @catalog.media.each do |medium| %>
+      <tr>
+        <td><%= medium.title %></td>
+        <td><%= medium.description %></td>
+        <td><%= medium.price %></td>
+        <td><%= medium.category %></td>
+        <td><%= link_to 'Show', medium %></td>
+        <td><%= link_to 'Buy', purchases_path(purchase: { medium_id: medium.id }), method: :post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
