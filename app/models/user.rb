@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :wallet
 
-  validates :admin, presence: true, single_admin: true
+  validates :admin, single_admin: true
 
   def name
     "#{first_name} #{last_name}"
