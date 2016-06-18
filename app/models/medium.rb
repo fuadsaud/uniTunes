@@ -8,5 +8,5 @@ class Medium < ActiveRecord::Base
     greater_than_or_equal_to: 0
   }
 
-  validates_presence_of :author
+  validates_presence_of :title, :description, :category, :author
 end
