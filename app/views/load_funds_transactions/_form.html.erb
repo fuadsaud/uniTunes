@@ -1,0 +1,19 @@
+<%= form_for(@load_funds_transaction) do |f| %>
+  <% if @load_funds_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@load_funds_transaction.errors.count, "error") %> prohibited this load_funds_transaction from being saved:</h2>
+
+      <ul>
+      <% @load_funds_transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+    <%= f.submit %>
+  </div>
+<% end %>

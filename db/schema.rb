@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618041616) do
+ActiveRecord::Schema.define(version: 20160618050328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20160618041616) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "load_funds_transactions", force: :cascade do |t|
+    t.integer  "amount_centavos", default: 0,     null: false
+    t.string   "amount_currency", default: "BRL", null: false
+    t.integer  "wallet_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "load_funds_transactions", ["wallet_id"], name: "index_load_funds_transactions_on_wallet_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false
@@ -53,5 +63,6 @@ ActiveRecord::Schema.define(version: 20160618041616) do
 
   add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
 
+  add_foreign_key "load_funds_transactions", "wallets"
   add_foreign_key "wallets", "users"
 end
