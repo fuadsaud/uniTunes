@@ -13,5 +13,6 @@ User.create!({
   password: 'admin123',
   password_confirmation: 'admin123',
   admin: true,
+  confirmed_at: Time.current,
   wallet: Wallet.create
 })
