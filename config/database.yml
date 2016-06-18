@@ -21,8 +21,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: unitunes_development
+  database: unitunes_test
 
 production:
   <<: *default
-  database: unitunes_development
+  database: unitunes_production
