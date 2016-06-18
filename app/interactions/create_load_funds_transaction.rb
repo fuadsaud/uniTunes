@@ -1,5 +1,3 @@
-require 'ostruct'
-
 class CreateLoadFundsTransaction
   def initialize(user:)
     @user = user
@@ -29,11 +27,7 @@ class CreateLoadFundsTransaction
     user.wallet
   end
 
-  class Response
-    def initialize(transaction:)
-      @load_funds_transaction = transaction
-    end
-
+  Response = ImmutableStruct.new(:transaction) do
     def success?
       transaction.persisted?
     end
@@ -41,11 +35,5 @@ class CreateLoadFundsTransaction
     def failed?
       !success?
     end
-
-    attr_reader :load_funds_transaction
-
-    private
-
-    alias_method :transaction, :load_funds_transaction
   end
 end

@@ -7,5 +7,9 @@ class CreateMedium
     def success?
       medium.persisted?
     end
+
+    def failed?
+      !success
+    end
   end
 end
