@@ -3,7 +3,7 @@ class MediaController < ApplicationController
 
   # GET /media
   def index
-    @media = Medium.all
+    @media = scope
   end
 
   # GET /media/1
@@ -51,9 +51,13 @@ class MediaController < ApplicationController
 
   private
 
+  def scope
+    current_user.media
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_medium
-    @medium = Medium.find(params[:id])
+    @medium = scope.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
