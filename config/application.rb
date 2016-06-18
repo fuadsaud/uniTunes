@@ -22,5 +22,8 @@ module UniTunes
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_controller.default_url_options = { host: ENV['APP_HOST'] }
+    config.action_mailer.default_url_options     = { host: ENV['APP_HOST'] }
   end
 end
