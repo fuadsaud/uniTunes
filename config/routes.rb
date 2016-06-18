@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'users#index'
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if ENV_POLICY.allow?('LETTER_OPENER')
 end
