@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   resources :load_funds_transactions
   resources :media
 
-  resources :admin_media, only: [:index, :show, :destroy]
-  resources :users, only: [:index, :show] do
-    member do
-      get :lock
+  scope :admin, module: nil do
+    resources :purchases, only: [:index, :show]
+    resources :media, only: [:index, :show, :destroy]
+    resources :users, only: [:index, :show] do
+      member do
+        get :lock
+      end
     end
   end
 
