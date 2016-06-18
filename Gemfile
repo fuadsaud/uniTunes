@@ -24,4 +24,6 @@ group :development do
   gem 'better_errors'
 
   gem 'spring'
+
+  gem 'letter_opener_web'
 end
