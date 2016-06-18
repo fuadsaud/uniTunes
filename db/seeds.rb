@@ -6,18 +6,39 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create({
-  first_name: 'John',
-  last_name: 'Doe',
-  email: 'admin@unitunes.com',
-  password: 'admin123',
-  password_confirmation: 'admin123',
-  admin: true,
-  confirmed_at: Time.current,
-  wallet: Wallet.create
-})
+admin = BuildConfirmedUser.new.call(
+    first_name: 'John',
+    last_name: 'Doe',
+    email: 'admin@unitunes.com',
+    password: 'admin123',
+    admin: true,
+).tap(&:save)
 
-Category.create!([
+another_user = BuildConfirmedUser.new.call(
+  first_name: 'Fuad',
+  last_name: 'Saud',
+  email: 'fuadksd@gmail.com',
+  password: 'q1w2e3r4'
+).tap(&:save)
+
+categories = Category.create!([
   { name: 'Fantasy' },
   { name: 'Sci-Fi' }
+])
+
+Medium.create!([
+  {
+    title: 'Alice in wonderland',
+    description: 'Down the rabbit hole',
+    price: 14.5,
+    author: admin,
+    category: Category.first
+  },
+  {
+    title: 'The Lord of the Rings',
+    description: "They're taking the hobbits to Isengard",
+    price: 150.9,
+    author: another_user,
+    category: Category.first
+  }
 ])
