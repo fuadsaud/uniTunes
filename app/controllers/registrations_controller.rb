@@ -9,4 +9,10 @@ class RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(*permitted_params) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(*permitted_params) }
   end
+
+  def build_resource(*)
+    super
+
+    resource.build_wallet
+  end
 end
