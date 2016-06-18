@@ -17,7 +17,8 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Lock account', lock_user_path(user.id) %></td>
+
+        <td><%= link_to_toggle_user_lock(user) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,11 +8,7 @@ Rails.application.routes.draw do
   scope :admin, module: nil do
     resources :purchases, only: [:index, :show]
     resources :media, only: [:index, :show, :destroy]
-    resources :users, only: [:index, :show] do
-      member do
-        get :lock
-      end
-    end
+    resources :users, only: [:index, :show, :update]
   end
 
   root to: 'load_funds_transactions#index'

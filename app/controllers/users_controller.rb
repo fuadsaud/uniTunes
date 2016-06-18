@@ -1,27 +1,40 @@
-class UsersController < AuthenticatedController
-  before_action :set_user, only: [:show, :lock]
+class UsersController < AdminController
+  before_action :set_user, only: [:show, :update]
 
   # GET /users
   def index
-    @users = User.all
+    @users = scope
   end
 
   # GET /users/1
   def show
   end
 
-  def lock
-    @user.lock_access!
+  def update
+    if locked_param?
+      @user.lock_access!
+    else
+      @user.unlock_access!
+    end
+
+    render 'show'
   end
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
+  def scope
+    User.all
   end
 
+  def set_user
+    @user = scope.find(params[:id])
+  end
+
+  def locked_param?
+    ActiveRecord::Type::Boolean.new.type_cast_from_user(user_params[:locked])
+  end
 
   def user_params
-    params[:user]
+    params.require(:user).permit(:locked)
   end
 end
