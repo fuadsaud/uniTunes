@@ -45,11 +45,24 @@ Song.create!(
 
 Video.create!(
   {
-    duration: 5,
+    duration: 8,
     medium_attributes: {
       title: 'Moises',
       description: 'Não consegue',
       price: 1_000_000,
+      author: another_user,
+      category: Category.last
+    }
+  }
+)
+
+Podcast.create!(
+  {
+    duration: 45,
+    medium_attributes: {
+      title: 'Mupoca #50',
+      description: 'mas o que é',
+      price: 0,
       author: another_user,
       category: Category.last
     }

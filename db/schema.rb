@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619074849) do
+ActiveRecord::Schema.define(version: 20160619075223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 20160619074849) do
   add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
   add_index "media", ["category_id"], name: "index_media_on_category_id", using: :btree
   add_index "media", ["media_content_type", "media_content_id"], name: "index_media_on_media_content_type_and_media_content_id", using: :btree
+
+  create_table "podcasts", force: :cascade do |t|
+    t.integer  "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "purchases", force: :cascade do |t|
     t.integer  "amount_centavos",        default: 0,     null: false
