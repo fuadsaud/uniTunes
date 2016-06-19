@@ -30,19 +30,36 @@ categories = Category.create!([
   { name: 'Sci-Fi' }
 ])
 
+require 'pry'; binding.pry
+
+Song.create!(
+  {
+    duration: 4,
+    medium_attributes: {
+      title: 'Wona',
+      description: 'lalal',
+      price:  0.99,
+      author: admin,
+      category: Category.first
+    }
+  }
+)
+
 Medium.create!([
   {
     title: 'Alice in wonderland',
     description: 'Down the rabbit hole',
     price: 14.5,
     author: admin,
-    category: Category.first
+    category: Category.first,
+    media_content: Song.new(duration: 10)
   },
   {
     title: 'The Lord of the Rings',
     description: "They're taking the hobbits to Isengard",
     price: 150.9,
     author: another_user,
-    category: Category.first
+    category: Category.first,
+    media_content: Song.new(duration: 10)
   }
 ])
