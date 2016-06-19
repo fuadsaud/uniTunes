@@ -43,6 +43,19 @@ Song.create!(
   }
 )
 
+Video.create!(
+  {
+    duration: 5,
+    medium_attributes: {
+      title: 'Moises',
+      description: 'Não consegue',
+      price: 1_000_000,
+      author: another_user,
+      category: Category.last
+    }
+  }
+)
+
 Medium.create!([
   {
     title: 'Alice in wonderland',
