@@ -30,8 +30,6 @@ categories = Category.create!([
   { name: 'Sci-Fi' }
 ])
 
-require 'pry'; binding.pry
-
 Song.create!(
   {
     duration: 4,
@@ -52,7 +50,7 @@ Medium.create!([
     price: 14.5,
     author: admin,
     category: Category.first,
-    media_content: Song.new(duration: 10)
+    media_content: Book.new(page_count: 657)
   },
   {
     title: 'The Lord of the Rings',
@@ -60,6 +58,6 @@ Medium.create!([
     price: 150.9,
     author: another_user,
     category: Category.first,
-    media_content: Song.new(duration: 10)
+    media_content: Book.new(page_count: 1500)
   }
 ])
