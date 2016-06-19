@@ -1,35 +1,35 @@
 class CreateLoadFundsTransaction
-  def initialize(user:)
-    @user = user
-  end
-
-  def call(amount:)
-    Response.new(transaction: process_transaction(amount: amount))
+  def call(user:, amount:)
+    Response.new(
+      load_funds_transaction: process_transaction(wallet: find_wallet(user), amount: amount)
+    )
   end
 
   private
 
   attr_reader :user
 
-  def process_transaction(**params)
+  def process_transaction(wallet:, amount:)
     ActiveRecord::Base.transaction do
-      create_transaction(params).tap do |transaction|
-        wallet.add_credits(transaction.amount).save
+      create_transaction(wallet, amount).tap do |transaction|
+        wallet.with_lock do
+          wallet.add_credits(transaction.amount).save if transaction.persisted?
+        end
       end
     end
   end
 
-  def create_transaction(**params)
-    wallet.load_funds_transactions.create(params)
+  def create_transaction(wallet, amount)
+    wallet.load_funds_transactions.create(wallet: wallet, amount: amount)
   end
 
-  def wallet
+  def find_wallet(user)
     user.wallet
   end
 
-  Response = ImmutableStruct.new(:transaction) do
+  Response = ImmutableStruct.new(:load_funds_transaction) do
     def success?
-      transaction.persisted?
+      load_funds_transaction.persisted?
     end
 
     def failed?

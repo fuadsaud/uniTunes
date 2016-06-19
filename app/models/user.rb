@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable, :lockable, :confirmable
 
+  def self.admin
+    User.find_by(admin: true)
+  end
+
   has_one :wallet
   has_many :media, foreign_key: 'author_id'
 

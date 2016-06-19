@@ -17,7 +17,8 @@ class LoadFundsTransactionsController < AuthenticatedController
 
   # POST /load_funds_transactions
   def create
-    response = CreateLoadFundsTransaction.new(user: current_user).call(
+    response = CreateLoadFundsTransaction.new.call(
+      user: current_user,
       amount: amount_param
     )
 
