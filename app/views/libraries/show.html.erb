@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Media</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @library.media.each do |medium| %>
+      <tr>
+        <td><%= medium.title %></td>
+        <td><%= medium.description %></td>
+        <td><%= medium.price %></td>
+        <td><%= medium.category %></td>
+        <td><%= link_to 'Show', library_medium_path(medium) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

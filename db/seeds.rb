@@ -6,13 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-BuildConfirmedUser.new.call(
+admin = BuildConfirmedUser.new.call(
     first_name: 'John',
     last_name: 'Doe',
     email: 'admin@unitunes.com',
     password: 'admin123',
     admin: true,
 ).tap(&:save!)
+
+LoadFunds.new.call(user: admin, amount: 300)
 
 another_user = BuildConfirmedUser.new.call(
   first_name: 'Fuad',
@@ -33,7 +35,7 @@ Medium.create!([
     title: 'Alice in wonderland',
     description: 'Down the rabbit hole',
     price: 14.5,
-    author: User.admin,
+    author: admin,
     category: Category.first
   },
   {

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :media
   resources :catalog_media, only: :show
   resource :catalog, only: :show
+  resource :library, only: :show
 
   namespace :admin do
     resources :purchases, only: [:index, :show]
