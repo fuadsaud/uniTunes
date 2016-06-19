@@ -1,4 +1,4 @@
-class CreateLoadFundsTransaction
+class LoadFunds
   def call(user:, amount:)
     Response.new(
       load_funds_transaction: process_transaction(wallet: find_wallet(user), amount: amount)
