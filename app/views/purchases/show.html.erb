@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medium:</strong>
+  <%= @purchase.medium.title %>
+</p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @purchase.buyer.name %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @purchase.seller.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @purchase.amount %>
+</p>
+
+<%= link_to 'Back', purchases_path %>

@@ -18,6 +18,14 @@ class Purchase < ActiveRecord::Base
 
   validate :shares_sum_up
 
+  def buyer
+    wallet.user
+  end
+
+  def seller
+    medium.author
+  end
+
   private
 
   def shares_sum

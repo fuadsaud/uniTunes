@@ -18,6 +18,10 @@ class PurchasesController < AuthenticatedController
     end
   end
 
+  def show
+    @purchase = scope.find(params[:id])
+  end
+
   private
 
   def medium_id_param
