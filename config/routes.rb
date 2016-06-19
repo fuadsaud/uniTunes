@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 
   resources :purchases, only: [:index, :create, :show]
   resources :load_funds_transactions
+
   resources :media
-  resources :catalog_media, only: :show
+
   resource :catalog, only: :show
   resource :library, only: :show
+
+  resources :catalog_media, only: :show
+  resources :library_media, only: :show
 
   namespace :admin do
     resources :purchases, only: [:index, :show]

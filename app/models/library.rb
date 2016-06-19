@@ -4,6 +4,6 @@ class Library < ActiveRecord::Base
   validates_presence_of :user
 
   def media
-    Medium.find(user.wallet.purchases.pluck(:medium_id))
+    Medium.where(id: user.wallet.purchases.pluck(:medium_id))
   end
 end
