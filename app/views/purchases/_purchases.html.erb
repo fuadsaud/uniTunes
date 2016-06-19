@@ -1,0 +1,21 @@
+<h1>Listing Purchases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Media</th>
+      <th>Amount</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td><%= purchase.medium.title %></td>
+        <td><%= purchase.amount %></td>
+        <td><%= link_to 'Show', purchase %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
