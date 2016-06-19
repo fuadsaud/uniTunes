@@ -1,4 +1,4 @@
-class LibraryMediaController < ApplicationController
+class LibraryMediaController < AuthenticatedController
   def show
     @medium = scope.find(params[:id])
   end
