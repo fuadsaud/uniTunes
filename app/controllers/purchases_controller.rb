@@ -8,8 +8,6 @@ class PurchasesController < AuthenticatedController
 
     @medium = result.medium
 
-    require 'pry'; binding.pry
-
     if result.success?
       redirect_to catalog_medium_path(@medium),
         notice: 'Medium successfully purchased and added to you library'

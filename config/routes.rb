@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  resources :purchases, only: [:index, :create]
+  resources :purchases, only: [:index, :create, :show]
   resources :load_funds_transactions
   resources :media
   resources :catalog_media, only: :show
   resource :catalog, only: :show
 
-  scope :admin, module: nil do
+  namespace :admin do
     resources :purchases, only: [:index, :show]
     resources :media, only: [:index, :show, :destroy]
     resources :users, only: [:index, :show, :update]
