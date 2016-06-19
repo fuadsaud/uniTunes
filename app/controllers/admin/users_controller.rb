@@ -1,4 +1,4 @@
-odule Admin
+module Admin
   class UsersController < BaseController
     before_action :set_user, only: [:show, :update]
 
