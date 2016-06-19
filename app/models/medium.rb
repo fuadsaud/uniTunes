@@ -1,6 +1,6 @@
 class Medium < ActiveRecord::Base
-  belongs_to :category
-  belongs_to :author, class_name: 'User'
+  belongs_to :category, validate: true
+  belongs_to :author, class_name: 'User', validate: true
 
   monetize :price_centavos
 

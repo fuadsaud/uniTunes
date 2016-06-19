@@ -1,8 +1,8 @@
 class Wallet < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, validate: true
 
-  has_many :load_funds_transactions
-  has_many :purchases
+  has_many :load_funds_transactions, validate: true
+  has_many :purchases, validate: true
 
   validates_presence_of :user
 

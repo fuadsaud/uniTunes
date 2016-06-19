@@ -1,6 +1,6 @@
 class Purchase < ActiveRecord::Base
-  belongs_to :medium
-  belongs_to :wallet
+  belongs_to :medium, validate: true
+  belongs_to :wallet, validate: true
 
   validates_presence_of :medium, :wallet
 

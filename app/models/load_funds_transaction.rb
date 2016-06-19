@@ -1,5 +1,5 @@
 class LoadFundsTransaction < ActiveRecord::Base
-  belongs_to :wallet
+  belongs_to :wallet, validate: true
 
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
