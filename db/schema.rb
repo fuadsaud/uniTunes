@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20160619075223) do
   add_index "media", ["media_content_type", "media_content_id"], name: "index_media_on_media_content_type_and_media_content_id", using: :btree
 
   create_table "podcasts", force: :cascade do |t|
-    t.integer  "duration"
+    t.integer  "duration",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20160619075223) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.integer  "duration"
+    t.integer  "duration",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

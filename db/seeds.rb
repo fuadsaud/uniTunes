@@ -25,9 +25,26 @@ another_user = BuildConfirmedUser.new.call(
 
 LoadFunds.new.call(user: another_user, amount: 100)
 
-categories = Category.create!([
-  { name: 'Fantasy' },
-  { name: 'Sci-Fi' }
+Category.create!([
+  { name: 'Jazz' },
+  { name: 'Sci-Fi & Fantasy' },
+  { name: 'Documentary' },
+  { name: 'Arts' },
+  { name: 'Business' },
+  { name: 'Comedy' },
+  { name: 'Education' },
+  { name: 'Games & Hobbies' },
+  { name: 'Government & Organizations' },
+  { name: 'Health' },
+  { name: 'Kids & Family' },
+  { name: 'Music' },
+  { name: 'News & Politics' },
+  { name: 'Religion & Spirituality' },
+  { name: 'Science & Medicine' },
+  { name: 'Society & Culture' },
+  { name: 'Sports & Recreation' },
+  { name: 'Technology' },
+  { name: 'TV & Film' },
 ])
 
 Song.create!(
@@ -38,7 +55,7 @@ Song.create!(
       description: 'lalal',
       price:  0.99,
       author: admin,
-      category: Category.first
+      category: Category.find_by(name: 'Jazz')
     }
   }
 )
@@ -51,7 +68,7 @@ Video.create!(
       description: 'Não consegue',
       price: 1_000_000,
       author: another_user,
-      category: Category.last
+      category: Category.find_by(name: 'Documentary')
     }
   }
 )
@@ -64,7 +81,7 @@ Podcast.create!(
       description: 'mas o que é',
       price: 0,
       author: another_user,
-      category: Category.last
+      category: Category.find_by(name: 'Arts')
     }
   }
 )
@@ -75,7 +92,7 @@ Medium.create!([
     description: 'Down the rabbit hole',
     price: 14.5,
     author: admin,
-    category: Category.first,
+    category: Category.find_by(name: 'Sci-Fi & Fantasy'),
     media_content: Book.new(page_count: 657)
   },
   {
@@ -83,7 +100,7 @@ Medium.create!([
     description: "They're taking the hobbits to Isengard",
     price: 150.9,
     author: another_user,
-    category: Category.first,
+    category: Category.find_by(name: 'Sci-Fi & Fantasy'),
     media_content: Book.new(page_count: 1500)
   }
 ])
