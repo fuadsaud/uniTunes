@@ -6,6 +6,6 @@ class CatalogMediaController < AuthenticatedController
   private
 
   def scope
-    Catalog.default.media
+    current_user.library.media
   end
 end

@@ -26,25 +26,25 @@ another_user = BuildConfirmedUser.new.call(
 LoadFunds.new.call(user: another_user, amount: 100)
 
 Category.create!([
-  { media_content_type: 'song',    name: 'Jazz' },
-  { media_content_type: 'book',    name: 'Sci-Fi & Fantasy' },
-  { media_content_type: 'video',   name: 'Documentary' },
-  { media_content_type: 'podcast', name: 'Arts' },
-  { media_content_type: 'podcast', name: 'Business' },
-  { media_content_type: 'podcast', name: 'Comedy' },
-  { media_content_type: 'podcast', name: 'Education' },
-  { media_content_type: 'podcast', name: 'Games & Hobbies' },
-  { media_content_type: 'podcast', name: 'Government & Organizations' },
-  { media_content_type: 'podcast', name: 'Health' },
-  { media_content_type: 'podcast', name: 'Kids & Family' },
-  { media_content_type: 'podcast', name: 'Music' },
-  { media_content_type: 'podcast', name: 'News & Politics' },
-  { media_content_type: 'podcast', name: 'Religion & Spirituality' },
-  { media_content_type: 'podcast', name: 'Science & Medicine' },
-  { media_content_type: 'podcast', name: 'Society & Culture' },
-  { media_content_type: 'podcast', name: 'Sports & Recreation' },
-  { media_content_type: 'podcast', name: 'Technology' },
-  { media_content_type: 'podcast', name: 'TV & Film' },
+  { media_content_type: 'Song',    name: 'Jazz' },
+  { media_content_type: 'Book',    name: 'Sci-Fi & Fantasy' },
+  { media_content_type: 'Video',   name: 'Documentary' },
+  { media_content_type: 'Podcast', name: 'Arts' },
+  { media_content_type: 'Podcast', name: 'Business' },
+  { media_content_type: 'Podcast', name: 'Comedy' },
+  { media_content_type: 'Podcast', name: 'Education' },
+  { media_content_type: 'Podcast', name: 'Games & Hobbies' },
+  { media_content_type: 'Podcast', name: 'Government & Organizations' },
+  { media_content_type: 'Podcast', name: 'Health' },
+  { media_content_type: 'Podcast', name: 'Kids & Family' },
+  { media_content_type: 'Podcast', name: 'Music' },
+  { media_content_type: 'Podcast', name: 'News & Politics' },
+  { media_content_type: 'Podcast', name: 'Religion & Spirituality' },
+  { media_content_type: 'Podcast', name: 'Science & Medicine' },
+  { media_content_type: 'Podcast', name: 'Society & Culture' },
+  { media_content_type: 'Podcast', name: 'Sports & Recreation' },
+  { media_content_type: 'Podcast', name: 'Technology' },
+  { media_content_type: 'Podcast', name: 'TV & Film' },
 ])
 
 Song.create!(
@@ -107,14 +107,4 @@ Book.create!([
       category: Category.find_by(name: 'Sci-Fi & Fantasy'),
     }
   },
-  {
-    page_count: 200,
-    medium_attributes: {
-      title: 'Some random book',
-      description: 'foo',
-      price: 12.9,
-      author: another_user,
-      category: Category.find_by(name: 'Education'),
-    }
-  }
 ])

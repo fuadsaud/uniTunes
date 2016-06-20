@@ -1,0 +1,12 @@
+<% content_for :content do %>
+  <nav>
+    <%= link_to 'Books', library_path(library: { media_content_type: Medium::BOOK }) %>
+    <%= link_to 'Music', library_path(library: { media_content_type: Medium::SONG }) %>
+    <%= link_to 'Movies', library_path(library: { media_content_type: Medium::VIDEO}) %>
+    <%= link_to 'Podcasts', library_path(library: { media_content_type: Medium::PODCAST }) %>
+  </nav>
+
+  <%= content_for?(:libraries_content) ? yield(:libraries_content) : yield %>
+<% end %>
+
+<%= render template: 'layouts/authenticated' %>

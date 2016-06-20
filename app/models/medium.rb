@@ -1,8 +1,8 @@
 class Medium < ActiveRecord::Base
-  BOOK    = 'book'
-  SONG    = 'song'
-  VIDEO   = 'video'
-  PODCAST = 'podcast'
+  BOOK    = 'Book'
+  SONG    = 'Song'
+  VIDEO   = 'Video'
+  PODCAST = 'Podcast'
 
   MEDIA_CONTENT_TYPES = [BOOK, SONG, VIDEO, PODCAST]
 
