@@ -86,21 +86,35 @@ Podcast.create!(
   }
 )
 
-Medium.create!([
+Book.create!([
   {
-    title: 'Alice in wonderland',
-    description: 'Down the rabbit hole',
-    price: 14.5,
-    author: admin,
-    category: Category.find_by(name: 'Sci-Fi & Fantasy'),
-    media_content: Book.new(page_count: 657)
+    page_count: 657,
+    medium_attributes: {
+      title: 'Alice in wonderland',
+      description: 'Down the rabbit hole',
+      price: 14.5,
+      author: admin,
+      category: Category.find_by(name: 'Sci-Fi & Fantasy'),
+    }
   },
   {
-    title: 'The Lord of the Rings',
-    description: "They're taking the hobbits to Isengard",
-    price: 150.9,
-    author: another_user,
-    category: Category.find_by(name: 'Sci-Fi & Fantasy'),
-    media_content: Book.new(page_count: 1500)
+    page_count: 1500,
+    medium_attributes: {
+      title: 'The Lord of the Rings',
+      description: "They're taking the hobbits to Isengard",
+      price: 150.9,
+      author: another_user,
+      category: Category.find_by(name: 'Sci-Fi & Fantasy'),
+    }
+  },
+  {
+    page_count: 200,
+    medium_attributes: {
+      title: 'Some random book',
+      description: 'foo',
+      price: 12.9,
+      author: another_user,
+      category: Category.find_by(name: 'Education'),
+    }
   }
 ])

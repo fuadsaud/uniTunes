@@ -1,0 +1,12 @@
+<% content_for :content do %>
+  <nav>
+    <%= link_to 'Books', catalog_path(catalog: { media_content_type: 'book' }) %>
+    <%= link_to 'Music', catalog_path(catalog: { media_content_type: 'song' }) %>
+    <%= link_to 'Movies', catalog_path(catalog: { media_content_type: 'video' }) %>
+    <%= link_to 'Podcasts', catalog_path(catalog: { media_content_type: 'podcast' }) %>
+  </nav>
+
+  <%= content_for?(:catalogs_content) ? yield(:catalogs_content) : yield %>
+<% end %>
+
+<%= render template: 'layouts/authenticated' %>

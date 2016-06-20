@@ -1,11 +1,13 @@
 class Catalog
-  def self.default
-    new(media: Medium.all)
+  def initialize(catalog: AllMediaCatalog, media_content_type: 'all')
+    media_cn
   end
 
-  attr_reader :media
+  def media
+    catalog.media.where(media_content_type: media_content_type)
+  end
 
-  def initialize(media:)
-    @media = media
+  def media_content_type
+    @media_content_type == 'all' ? 
   end
 end
