@@ -1,11 +1,11 @@
 class CatalogsController < AuthenticatedController
   def show
-    @catalog = catalog
+    @catalog = catalog_view
   end
 
   private
 
-  def catalog
+  def catalog_view
     MediaView.new(
       media_scope: Medium.all,
       media_content_type: media_content_type_param,

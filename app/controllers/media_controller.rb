@@ -3,7 +3,7 @@ class MediaController < AuthenticatedController
 
   # GET /media
   def index
-    @media = scope
+    @porfolio = portfolio_view
   end
 
   # GET /media/1
@@ -51,16 +51,34 @@ class MediaController < AuthenticatedController
 
   private
 
+  def portfolio_view
+    MediaView.new(
+      media_scope: scope,
+      category: category_param,
+      media_content_type: media_content_type_param,
+    )
+  end
+
+  def category_param
+    portfolio_params[:category_id]
+  end
+
+  def media_content_type_param
+    portfolio_params.fetch(:media_content_type, Medium::BOOK)
+  end
+
+  def portfolio_params
+    params.permit(media: [:category_id, :media_content_type]).fetch(:media, {})
+  end
+
   def scope
     current_user.media
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_medium
     @medium = scope.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def medium_params
     params.require(:medium).permit(:title, :description, :price, :category_id)
   end
