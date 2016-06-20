@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619075223) do
+ActiveRecord::Schema.define(version: 20160620042759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,11 @@ ActiveRecord::Schema.define(version: 20160619075223) do
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",       null: false
+    t.string   "name",               null: false
+    t.integer  "media_content_type", null: false
   end
+
+  add_index "categories", ["name", "media_content_type"], name: "index_categories_on_name_and_media_content_type", unique: true, using: :btree
 
   create_table "libraries", force: :cascade do |t|
     t.integer  "user_id",    null: false

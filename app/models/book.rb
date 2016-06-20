@@ -8,4 +8,8 @@ class Book < ActiveRecord::Base
   }
 
   validates_presence_of :medium
+
+  def type
+    Medium::BOOK
+  end
 end

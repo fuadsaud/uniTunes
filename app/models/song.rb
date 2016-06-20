@@ -8,4 +8,8 @@ class Song < ActiveRecord::Base
   }
 
   validates_presence_of :medium
+
+  def type
+    Medium::SONG
+  end
 end

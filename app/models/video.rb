@@ -8,4 +8,8 @@ class Video < ActiveRecord::Base
   }
 
   validates_presence_of :medium
+
+  def type
+    Medium::VIDEO
+  end
 end

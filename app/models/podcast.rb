@@ -8,4 +8,8 @@ class Podcast < ActiveRecord::Base
   }
 
   validates_presence_of :medium
+
+  def type
+    Medium::PODCAST
+  end
 end
