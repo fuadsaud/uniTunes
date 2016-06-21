@@ -2,20 +2,23 @@ class PurchaseMedium
   def call(user:, medium_id:)
     wallet = find_wallet(user)
     medium = find_medium(medium_id)
+
     purchase = Purchase.new(split_shares(medium.price).merge(
       wallet: wallet,
       medium: medium,
       amount: medium.price
     ))
 
-    begin
-      response = ActiveRecord::Base.transaction do
-        perform_purchase_transaction(purchase)
-      end
+    if purchase.valid?
+      begin
+        response = ActiveRecord::Base.transaction do
+          perform_purchase_transaction(purchase)
+        end
 
-      purchase = response.purchase
-    rescue PerformTransaction::NotEnoughFundsError => e
-      purchase.errors.add(:wallet, e.message)
+        purchase = response.purchase
+      rescue PerformTransaction::NotEnoughFundsError => e
+        purchase.errors.add(:wallet, e.message)
+      end
     end
 
     Response.new(medium: medium, purchase: purchase)
