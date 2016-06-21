@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener('page:load', function() {
+  $('[data-role=categories-select]').change(function() {
+    window.location.href = this.value;
+  });
+});

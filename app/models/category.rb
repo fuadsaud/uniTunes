@@ -6,6 +6,8 @@ class Category < ActiveRecord::Base
     Medium::PODCAST => 3,
   }
 
+  has_many :media
+
   validates_presence_of :name, :media_content_type
 
   validates_uniqueness_of :name, scope: :media_content_type

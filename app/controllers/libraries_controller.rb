@@ -9,7 +9,7 @@ class LibrariesController < AuthenticatedController
     MediaView.new(
       media_scope: library.media,
       media_content_type: media_content_type_param,
-      category: category_param
+      category_id: category_id_param
     )
   end
 
@@ -17,15 +17,11 @@ class LibrariesController < AuthenticatedController
     current_user.library
   end
 
-  def category_param
-    library_params[:category_id]
+  def category_id_param
+    params[:category_id]
   end
 
   def media_content_type_param
-    library_params.fetch(:media_content_type, Medium::BOOK)
-  end
-
-  def library_params
-    params.permit(library: [:category_id, :media_content_type]).fetch(:library, {})
+    params.fetch(:media_content_type, Medium::BOOK)
   end
 end

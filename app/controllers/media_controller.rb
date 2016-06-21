@@ -3,7 +3,7 @@ class MediaController < AuthenticatedController
 
   # GET /media
   def index
-    @porfolio = portfolio_view
+    @portfolio = portfolio_view
   end
 
   # GET /media/1
@@ -54,21 +54,17 @@ class MediaController < AuthenticatedController
   def portfolio_view
     MediaView.new(
       media_scope: scope,
-      category: category_param,
+      category_id: category_id_param,
       media_content_type: media_content_type_param,
     )
   end
 
-  def category_param
-    portfolio_params[:category_id]
+  def category_id_param
+    params[:category_id]
   end
 
   def media_content_type_param
-    portfolio_params.fetch(:media_content_type, Medium::BOOK)
-  end
-
-  def portfolio_params
-    params.permit(media: [:category_id, :media_content_type]).fetch(:media, {})
+    params.fetch(:media_content_type, Medium::BOOK)
   end
 
   def scope

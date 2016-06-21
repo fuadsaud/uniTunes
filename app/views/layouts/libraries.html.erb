@@ -1,10 +1,5 @@
 <% content_for :content do %>
-  <ul class="nav nav-pills">
-    <li><%= link_to 'Books', library_path(library: { media_content_type: Medium::BOOK }) %></li>
-    <li><%= link_to 'Music', library_path(library: { media_content_type: Medium::SONG }) %></li>
-    <li><%= link_to 'Movies', library_path(library: { media_content_type: Medium::VIDEO}) %></li>
-    <li><%= link_to 'Podcasts', library_path(library: { media_content_type: Medium::PODCAST }) %></li>
-  </ul>
+  <%= render partial: 'media_content_types_nav', locals: { path_helper: method(:library_path) } %>
 
   <%= content_for?(:libraries_content) ? yield(:libraries_content) : yield %>
 <% end %>

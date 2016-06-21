@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get :store, to: 'stores#show', as: :default_store
   resources :stores, only: :show, param: :media_content_type
 
-  resource :library, only: :show
+  get :library, to: 'libraries#show', as: :default_library
+  resources :libraries, only: :show, param: :media_content_type
 
   resources :catalog_media, only: :show
   resources :library_media, only: :show

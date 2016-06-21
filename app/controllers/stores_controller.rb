@@ -1,8 +1,4 @@
 class StoresController < AuthenticatedController
-  def index
-    render 'show'
-  end
-
   def show
     @store = store_view
   end
@@ -13,11 +9,11 @@ class StoresController < AuthenticatedController
     MediaView.new(
       media_scope: Medium.all,
       media_content_type: media_content_type_param,
-      category: category_param
+      category_id: category_id_param
     )
   end
 
-  def category_param
+  def category_id_param
     params[:category_id]
   end
 

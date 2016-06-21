@@ -2,6 +2,8 @@
 
 <h1>Portfolio</h1>
 
+<%= categories_select(@portfolio, path_helper: method(:media_path)) %>
+
 <table>
   <thead>
     <tr>
@@ -14,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @porfolio.media.each do |medium| %>
+    <% @portfolio.media.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
         <td><%= medium.description %></td>
