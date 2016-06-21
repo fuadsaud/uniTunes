@@ -18,6 +18,8 @@
 
   <%= yield :header %>
 
-  <%= content_for?(:content) ? yield(:content) : yield %>
+  <main>
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </main>
 </body>
 </html>

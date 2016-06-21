@@ -1,10 +1,10 @@
 <% content_for :content do %>
-  <nav>
-    <%= link_to 'Books', store_path(Medium::BOOK) %>
-    <%= link_to 'Music', store_path(Medium::SONG) %>
-    <%= link_to 'Movies', store_path(Medium::VIDEO) %>
-    <%= link_to 'Podcasts', store_path(Medium::PODCAST) %>
-  </nav>
+  <ul class="nav nav-pills">
+    <li><%= link_to 'Books', store_path(Medium::BOOK) %></li>
+    <li><%= link_to 'Music', store_path(Medium::SONG) %></li>
+    <li><%= link_to 'Movies', store_path(Medium::VIDEO) %></li>
+    <li><%= link_to 'Podcasts', store_path(Medium::PODCAST) %></li>
+  </ul>
 
   <%= content_for?(:stores_content) ? yield(:stores_content) : yield %>
 <% end %>

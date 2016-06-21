@@ -1,7 +1,8 @@
 <%= form_for(@medium) do |f| %>
   <% if @medium.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@medium.errors.count, "error") %> prohibited this medium from being saved:</h2>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <%= pluralize(@medium.errors.count, "error") %> prohibited this medium from being saved:
 
       <ul>
       <% @medium.errors.full_messages.each do |message| %>
