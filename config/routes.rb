@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :update]
   end
 
-  root to: redirect('/stores')
+  root to: redirect('/store')
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if ENV_POLICY.allow?('LETTER_OPENER')
 end
