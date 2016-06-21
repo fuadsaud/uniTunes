@@ -1,10 +1,15 @@
 <% content_for :header do %>
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  <%= link_to account_balance, load_funds_transactions_path %>
-  <%= link_to 'Store', catalog_path %>
-  <%= link_to 'Library', library_path %>
-  <%= link_to 'Purchase History', purchases_path %>
-  <%= link_to 'Portfolio', media_path %>
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to account_balance, load_funds_transactions_path %></li>
+      <li><%= link_to 'Store', catalog_path %></li>
+      <li><%= link_to 'Library', library_path %></li>
+      <li><%= link_to 'Purchase History', purchases_path %></li>
+      <li><%= link_to 'Portfolio', media_path %></li>
+    </ul>
+  </nav>
 <% end %>
+
 
 <%= render template: 'layouts/application' %>
