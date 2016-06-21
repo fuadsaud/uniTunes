@@ -1,10 +1,10 @@
 <% content_for :content do %>
-  <nav>
-    <%= link_to 'Books', media_path(media: { media_content_type: Medium::BOOK }) %>
-    <%= link_to 'Music', media_path(media: { media_content_type: Medium::SONG }) %>
-    <%= link_to 'Movies', media_path(media: { media_content_type: Medium::VIDEO}) %>
-    <%= link_to 'Podcasts', media_path(media: { media_content_type: Medium::PODCAST }) %>
-  </nav>
+  <ul class="nav nav-pills">
+    <li><%= link_to 'Books', media_path(media: { media_content_type: Medium::BOOK }) %></li>
+    <li><%= link_to 'Music', media_path(media: { media_content_type: Medium::SONG }) %></li>
+    <li><%= link_to 'Movies', media_path(media: { media_content_type: Medium::VIDEO}) %></li>
+    <li><%= link_to 'Podcasts', media_path(media: { media_content_type: Medium::PODCAST }) %></li>
+  </ul>
 
   <%= content_for?(:media_content) ? yield(:media_content) : yield %>
 <% end %>
