@@ -1,7 +1,7 @@
 <% content_for :header do %>
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
   <%= link_to account_balance, load_funds_transactions_path %>
-  <%= link_to 'Store', catalog_path %>
+  <%= link_to 'Store', default_store_path %>
   <%= link_to 'Library', library_path %>
   <%= link_to 'Purchase History', purchases_path %>
   <%= link_to 'Portfolio', media_path %>

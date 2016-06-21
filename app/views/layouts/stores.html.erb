@@ -1,0 +1,12 @@
+<% content_for :content do %>
+  <nav>
+    <%= link_to 'Books', store_path(Medium::BOOK) %>
+    <%= link_to 'Music', store_path(Medium::SONG) %>
+    <%= link_to 'Movies', store_path(Medium::VIDEO) %>
+    <%= link_to 'Podcasts', store_path(Medium::PODCAST) %>
+  </nav>
+
+  <%= content_for?(:stores_content) ? yield(:stores_content) : yield %>
+<% end %>
+
+<%= render template: 'layouts/authenticated' %>
