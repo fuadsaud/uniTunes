@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :media
 
-  resource :catalog, only: :show
+  get :store, to: 'stores#show', as: :default_store
+  resources :stores, only: :show, param: :media_content_type
+
   resource :library, only: :show
 
   resources :catalog_media, only: :show
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :update]
   end
 
-  root to: redirect('/catalog')
+  root to: redirect('/stores')
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if ENV_POLICY.allow?('LETTER_OPENER')
 end

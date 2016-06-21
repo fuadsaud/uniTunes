@@ -6,13 +6,14 @@ class PurchasesController < AuthenticatedController
   def create
     result = PurchaseMedium.new.call(user: current_user, medium_id: medium_id_param)
 
-    @medium = result.medium
+    medium = result.medium
+    purchase = result.purchase
 
     if result.success?
-      redirect_to catalog_medium_path(@medium),
+      redirect_to catalog_medium_path(medium),
         notice: 'Medium successfully purchased and added to you library'
     else
-      redirect_to catalog_medium_path(@medium), notice: 'There was a problem with you purchase'
+      redirect_to catalog_medium_path(medium), notice: purchase.errors.full_messages.join(' ')
     end
   end
 
