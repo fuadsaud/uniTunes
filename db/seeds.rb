@@ -55,7 +55,8 @@ Song.create!(
       description: 'lalal',
       price:  0.99,
       author: admin,
-      category: Category.find_by(name: 'Jazz')
+      category: Category.find_by(name: 'Jazz'),
+      file: 'http://www.stephaniequinn.com/Music/Mozart%20-%20Presto.mp3'
     }
   }
 )
@@ -68,7 +69,8 @@ Video.create!(
       description: 'Não consegue',
       price: 1_000_000,
       author: another_user,
-      category: Category.find_by(name: 'Documentary')
+      category: Category.find_by(name: 'Documentary'),
+      file: 'http://techslides.com/demos/sample-videos/small.webm'
     }
   }
 )
@@ -81,7 +83,8 @@ Podcast.create!(
       description: 'mas o que é',
       price: 0,
       author: another_user,
-      category: Category.find_by(name: 'Arts')
+      category: Category.find_by(name: 'Arts'),
+      file: 'http://ec-media.sndcdn.com/uuEaIRkULzp1?f10880d39085a94a0418a7ef61b03d5275edf83695e0cd6a5a31b904eeb2765fe88087d7130821dc9bc3053a307d8c5e49ef90569c00b0c9f05a7bf4ca'
     }
   }
 )
@@ -95,6 +98,7 @@ Book.create!([
       price: 14.5,
       author: admin,
       category: Category.find_by(name: 'Sci-Fi & Fantasy'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub'
     }
   },
   {
@@ -105,6 +109,7 @@ Book.create!([
       price: 150.9,
       author: another_user,
       category: Category.find_by(name: 'Sci-Fi & Fantasy'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub'
     }
   },
 ])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620042759) do
+ActiveRecord::Schema.define(version: 20160621180306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160620042759) do
     t.integer  "author_id",                          null: false
     t.integer  "media_content_id"
     t.string   "media_content_type"
+    t.string   "file"
   end
 
   add_index "media", ["author_id"], name: "index_media_on_author_id", using: :btree
