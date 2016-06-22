@@ -79,7 +79,7 @@ Podcast.create!(
   {
     duration: 45,
     medium_attributes: {
-      title: 'Mupoca #50',
+      title: 'Mupoca #49',
       description: 'mas o que é',
       price: 0,
       author: another_user,
