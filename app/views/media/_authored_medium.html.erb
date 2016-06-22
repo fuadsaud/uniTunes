@@ -1,0 +1,16 @@
+<h2><%= medium.title %></h2>
+
+<p>
+  <%= medium.description %>
+</p>
+
+<strong><%= medium.price %></strong>
+
+<p>
+  <%= link_to medium.category_name, medium.category_path %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_medium_path(medium), class: 'btn btn-info' %>
+  <%= link_to 'Destroy', medium_path(medium), method: :destroy, confirm: 'Are you sure?', class: 'btn btn-danger' %>
+</p>

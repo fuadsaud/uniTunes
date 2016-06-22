@@ -4,27 +4,4 @@
 
 <%= categories_select(@store, path_helper: method(:store_path)) %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @store.media.each do |medium| %>
-      <tr>
-        <td><%= medium.title %></td>
-        <td><%= medium.description %></td>
-        <td><%= medium.price %></td>
-        <td><%= medium.category %></td>
-        <td><%= link_to 'Show', medium_path(medium) %></td>
-        <td><%= link_to 'Buy', purchases_path(purchase: { medium_id: medium.id }), method: :post %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'media/cards_display', locals: { media_view: @store } %>

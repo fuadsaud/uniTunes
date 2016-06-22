@@ -6,4 +6,8 @@ class Library < ActiveRecord::Base
   def media
     Medium.where(id: user.wallet.purchases.pluck(:medium_id))
   end
+
+  def has?(medium)
+    media.exists?(medium)
+  end
 end

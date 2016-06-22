@@ -1,6 +1,6 @@
-<ul class="nav nav-pills">
-  <li><%= link_to 'Books', path_helper.call(media_content_type: Medium::BOOK) %></li>
-  <li><%= link_to 'Music', path_helper.call(media_content_type: Medium::SONG) %></li>
-  <li><%= link_to 'Movies', path_helper.call(media_content_type: Medium::VIDEO) %></li>
-  <li><%= link_to 'Podcasts', path_helper.call(media_content_type: Medium::PODCAST) %></li>
-</ul>
+<nav class="nav nav-inline">
+  <%= link_to 'Books', path_helper.call(media_content_type: Medium::BOOK), class: 'nav-link' %>
+  <%= link_to 'Music', path_helper.call(media_content_type: Medium::SONG), class: 'nav-link' %>
+  <%= link_to 'Movies', path_helper.call(media_content_type: Medium::VIDEO), class: 'nav-link'%>
+  <%= link_to 'Podcasts', path_helper.call(media_content_type: Medium::PODCAST), class: 'nav-link' %>
+</nav>

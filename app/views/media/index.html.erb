@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= render partial: 'media_content_types_nav', locals: { path_helper: method(:media_path) } %>
+
 <h1>Portfolio</h1>
 
 <%= categories_select(@portfolio, path_helper: method(:media_path)) %>

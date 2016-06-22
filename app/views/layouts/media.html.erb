@@ -1,6 +1,4 @@
 <% content_for :content do %>
-  <%= render partial: 'media_content_types_nav', locals: { path_helper: method(:media_path) } %>
-
   <%= content_for?(:media_content) ? yield(:media_content) : yield %>
 <% end %>
 

@@ -8,7 +8,7 @@ class MediaController < AuthenticatedController
 
   # GET /media/1
   def show
-    @medium = Medium.find(params[:id])
+    @medium = decorate_medium(Medium.find(params[:id]), current_user)
   end
 
   # GET /media/new
@@ -52,6 +52,10 @@ class MediaController < AuthenticatedController
 
   private
 
+  def decorate_medium(medium, user)
+    DecorateMedium.new.call(medium, user)
+  end
+
   def portfolio_view
     MediaView.new(
       media_scope: scope,
@@ -77,6 +81,6 @@ class MediaController < AuthenticatedController
   end
 
   def medium_params
-    params.require(:medium).permit(:title, :description, :price, :category_id)
+    params.require(:medium).permit(:title, :description, :price, :category_id, :thumbnail, :file)
   end
 end

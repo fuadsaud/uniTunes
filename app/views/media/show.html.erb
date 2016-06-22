@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%# <p id="notice"><%= notice %1></p> %>
+<p id="notice"><%= flash_messages %></p>
 
-<%= render partial: 'media/media', locals: { medium: @medium } %>
-
-<%= link_to 'Edit', edit_medium_path(@medium) %> |
-<%= link_to 'Back', media_path %>
+<%= render partial: 'media/medium', locals: { medium: @medium } %>

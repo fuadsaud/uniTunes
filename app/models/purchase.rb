@@ -29,7 +29,7 @@ class Purchase < ActiveRecord::Base
 
   def buyer_aint_author
     if buyer == seller
-      errors.add(:base, "author cannot purchase it's own creations")
+      errors.add(:base, "Author cannot purchase it's own creations")
     end
   end
 
@@ -39,7 +39,7 @@ class Purchase < ActiveRecord::Base
 
   def shares_sum_up
     unless shares_sum == amount
-      errors.add(:amount, 'individual shares do not sum up to total amount')
+      errors.add(:amount, 'does not match sum of individual shares')
     end
   end
 end
