@@ -22,7 +22,7 @@
         <td><%= medium.description %></td>
         <td><%= medium.price %></td>
         <td><%= medium.category %></td>
-        <td><%= link_to 'Show', catalog_medium_path(medium) %></td>
+        <td><%= link_to 'Show', medium_path(medium) %></td>
         <td><%= link_to 'Buy', purchases_path(purchase: { medium_id: medium.id }), method: :post %></td>
       </tr>
     <% end %>

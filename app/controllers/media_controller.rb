@@ -1,5 +1,5 @@
 class MediaController < AuthenticatedController
-  before_action :set_medium, only: [:show, :edit, :update, :destroy]
+  before_action :set_medium, only: [:edit, :update, :destroy]
 
   # GET /media
   def index
@@ -8,6 +8,7 @@ class MediaController < AuthenticatedController
 
   # GET /media/1
   def show
+    @medium = Medium.find(params[:id])
   end
 
   # GET /media/new

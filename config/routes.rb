@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   get :library, to: 'libraries#show', as: :default_library
   resources :libraries, only: :show, param: :media_content_type
 
-  resources :catalog_media, only: :show
-  resources :library_media, only: :show
-
   namespace :admin do
     resources :purchases, only: [:index, :show]
     resources :media, only: [:index, :show, :destroy]

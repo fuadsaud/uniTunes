@@ -10,10 +10,10 @@ class PurchasesController < AuthenticatedController
     purchase = result.purchase
 
     if result.success?
-      redirect_to catalog_medium_path(medium),
+      redirect_to medium_path(medium),
         notice: 'Medium successfully purchased and added to you library'
     else
-      redirect_to catalog_medium_path(medium), notice: purchase.errors.full_messages.join(' ')
+      redirect_to medium_path(medium), notice: purchase.errors.full_messages.join(' ')
     end
   end
 

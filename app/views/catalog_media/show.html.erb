@@ -20,5 +20,9 @@
   <%= @medium.category %>
 </p>
 
+<p>
+  <%= link_to 'Download', @medium.file %>
+</p>
+
 <%= link_to 'Edit', edit_medium_path(@medium) %> |
 <%= link_to 'Back', media_path %>
