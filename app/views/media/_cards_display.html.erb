@@ -1,5 +1,5 @@
 <div class="card-columns">
   <% media_view.media.each do |medium| %>
-    <%= render partial: 'media/card', locals: { medium: medium } %>
+    <%= render partial: 'media/card', locals: { medium: decorate_medium(medium, current_user) } %>
   <% end %>
 </div>

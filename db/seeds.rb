@@ -98,7 +98,8 @@ Book.create!([
       price: 14.5,
       author: admin,
       category: Category.find_by(name: 'Sci-Fi & Fantasy'),
-      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub'
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'http://www.freebooks.com/wp-content/uploads/2013/04/alice-alice-in-wonderland.jpg',
     }
   },
   {
@@ -109,7 +110,8 @@ Book.create!([
       price: 150.9,
       author: another_user,
       category: Category.find_by(name: 'Sci-Fi & Fantasy'),
-      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub'
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'http://sites.psu.edu/saupassion2/wp-content/uploads/sites/40606/2016/04/lord-of-the-rings-book-cover.jpg'
     }
   },
 ])

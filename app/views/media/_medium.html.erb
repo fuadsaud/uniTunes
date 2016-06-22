@@ -1,1 +1,12 @@
-<%= render partial: medium.(self), as: :medium %>
+<h2><%= medium.title %></h2>
+
+<p>
+  <%= medium.description %>
+</p>
+
+<strong><%= medium.price %></strong>
+
+<p>
+  <%= link_to medium.category_name, medium.category_path %>
+</p>
+

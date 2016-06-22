@@ -4,7 +4,7 @@ class MediumDecorator
     @context = context
   end
 
-  delegate :id, :title, :description, to: :medium
+  delegate :id, :title, :description, :thumbnail, to: :medium
 
   def price
     h.humanized_money_with_symbol(medium.price)

@@ -7,6 +7,6 @@
     <p class="card-text"><%= humanized_money_with_symbol medium.price %></p>
 
     <%= link_to 'Show', medium_path(medium), class: 'btn btn-primary' %>
-    <%= link_to 'Buy', purchases_path(purchase: { medium_id: medium.id }), method: :post, class: 'btn btn-success' %>
+    <%= medium.call_to_action %>
   </div>
 </div>

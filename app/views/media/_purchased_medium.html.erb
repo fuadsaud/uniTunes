@@ -1,15 +1,5 @@
-<h2><%= medium.title %></h2>
+<%= render partial: 'media/medium', locals: { medium: medium } %>
 
 <p>
-  <%= medium.description %>
-</p>
-
-<strong><%= medium.price %></strong>
-
-<p>
-  <%= link_to medium.category_name, medium.category_path %>
-</p>
-
-<p>
-  <%= link_to 'Download', medium.download_url %>
+  <%= medium.call_to_action %>
 </p>
