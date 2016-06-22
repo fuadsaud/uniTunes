@@ -5,6 +5,8 @@ class Purchase < ActiveRecord::Base
 
   validates_presence_of :medium, :wallet
 
+  validates_uniqueness_of :medium, scope: :wallet, message: 'has already been purchased'
+
   monetize :amount_centavos, presence: true, numericality: {
     greater_than_or_equal_to: 0
   }
@@ -27,7 +29,7 @@ class Purchase < ActiveRecord::Base
 
   def buyer_aint_author
     if buyer == seller
-      errors.add(:buyer, "author cannot purchase it's own creations")
+      errors.add(:base, "author cannot purchase it's own creations")
     end
   end
 
