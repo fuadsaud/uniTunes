@@ -77,6 +77,6 @@ class MediaController < AuthenticatedController
   end
 
   def medium_params
-    params.require(:medium).permit(:title, :description, :price, :category_id, :thumbnail, :file)
+    params.require(:medium).permit(:title, :description, :price, :category_id, :thumbnail, :file, :media_content_type)
   end
 end

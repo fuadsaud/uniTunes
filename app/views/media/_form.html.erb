@@ -26,12 +26,17 @@
   </div>
   <div class="form-group">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id, class: 'form-control' %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :thumbnail %><br>
     <%= f.text_field :thumbnail, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :media_content_type %><br>
+    <%= f.select :media_content_type, Medium::MEDIA_CONTENT_TYPES, class: 'form-control' %>
   </div>
 
   <div class="form-group">
