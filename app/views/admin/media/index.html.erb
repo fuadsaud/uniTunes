@@ -1,0 +1,9 @@
+<%= flash_messages %>
+
+<%= render partial: 'media_content_types_nav', locals: { path_helper: method(:media_path) } %>
+
+<h1>All Media</h1>
+
+<%= categories_select(@admin_media, path_helper: method(:media_path)) %>
+
+<%= render partial: 'media/cards_display', locals: { media_view: @admin_media } %>

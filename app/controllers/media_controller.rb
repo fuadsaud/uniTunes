@@ -57,7 +57,12 @@ class MediaController < AuthenticatedController
       media_scope: scope,
       category_id: category_id_param,
       media_content_type: media_content_type_param,
+      search_term: search_term_param
     )
+  end
+
+  def search_term_param
+    params[:search_term]
   end
 
   def category_id_param

@@ -1,16 +1,17 @@
 class MediaView
-  attr_reader :media_content_type
+  attr_reader :media_content_type, :search_term
 
   def initialize(media_scope: Medium.all, media_content_type:, categories_scope: Category.all,
-                 category_id: nil)
+                 category_id: nil, search_term: nil)
     @media_scope = media_scope
     @media_content_type = media_content_type
     @categories_scope = categories_scope
     @category_id = category_id.try(:to_i)
+    @search_term = search_term
   end
 
   def media
-    categories_filter.where(media_content_type: media_content_type)
+    categories_filter.where(media_content_type: media_content_type).where("UPPER(title) LIKE ?", "%#{search_term.strip.upcase}%")
   end
 
   def categories
@@ -18,7 +19,7 @@ class MediaView
   end
 
   def category
-    categories.find { |c| c.id == category_id }
+    categories.find { |c| c.id == category_id } || wildcard_category
   end
 
   private

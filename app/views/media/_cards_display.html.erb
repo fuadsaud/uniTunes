@@ -1,3 +1,10 @@
+<form action="" method="get" accept-charset="utf-8">
+  <input type="text" value="<%= media_view.search_term %>" name="search_term" />
+  <input type="hidden" value="<%= media_view.category.id %>" name="category_id" />
+  <input type="hidden" value="<%= media_view.media_content_type %>" name="media_content_type" />
+  <p><input type="submit" value="Search →" ></p>
+</form>
+
 <div class="card-columns">
   <% media_view.media.each do |medium| %>
     <%= render partial: 'media/card', locals: { medium: decorate_medium(medium, current_user) } %>

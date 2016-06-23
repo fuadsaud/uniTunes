@@ -9,8 +9,12 @@ class LibrariesController < AuthenticatedController
     MediaView.new(
       media_scope: library.media,
       media_content_type: media_content_type_param,
-      category_id: category_id_param
+      search_term: search_term_param
     )
+  end
+
+  def search_term_param
+    params[:search_term]
   end
 
   def library
