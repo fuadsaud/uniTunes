@@ -1,3 +1,8 @@
 <%= flash_messages %>
-
-<%= @load_funds_transaction.amount %>
+<%= link_to 'Go Back', load_funds_transactions_path, class: 'btn btn-primary pull-sm-right' %>
+<dl>
+    <dt>Amount</dt>
+    <dd><%= humanized_money_with_symbol @load_funds_transaction.amount %></dd>
+    <dt>Date</dt>
+    <dd><%= humanized_date @load_funds_transaction.created_at %></dd>
+</dl>

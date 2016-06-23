@@ -3,7 +3,7 @@ class LoadFundsTransactionsController < AuthenticatedController
 
   # GET /load_funds_transactions
   def index
-    @load_funds_transactions = scope.all
+    @load_funds_transactions = scope.ordered
   end
 
   # GET /load_funds_transactions/1

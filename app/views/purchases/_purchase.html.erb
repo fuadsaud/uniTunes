@@ -1,24 +1,12 @@
-<p>
-  <strong>Medium:</strong>
-  <%= purchase.medium.title %>
-</p>
-
-<p>
-  <strong>Buyer:</strong>
-  <%= purchase.buyer.name %>
-</p>
-
-<p>
-  <strong>Seller:</strong>
-  <%= purchase.seller.name %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= purchase.amount %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= purchase.created_at %>
-</p>
+<dl>
+  <dt>Medium:</dt>
+  <dd><%= purchase.medium.title %></dd>
+  <dt>Buyer:</dt>
+  <dd><%= purchase.buyer.name %></dd>
+  <dt>Seller:</dt>
+  <dd><%= purchase.seller.name %></dd>
+  <dt>Value:</dt>
+  <dd><%= humanized_money_with_symbol purchase.amount %></dd>
+  <dt>Date:</dt>
+  <dd><%= humanized_date purchase.created_at %></dd>
+</dl>

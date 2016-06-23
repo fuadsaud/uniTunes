@@ -3,6 +3,7 @@
 <%= render partial: 'media_content_types_nav', locals: { path_helper: method(:media_path) } %>
 
 <h1>Portfolio</h1>
+<%= link_to 'New Medium', new_medium_path, class: 'btn btn-primary pull-sm-right' %>
 
 <%= categories_select(@portfolio, path_helper: method(:media_path)) %>
 
@@ -10,4 +11,3 @@
 
 <br>
 
-<%= link_to 'New Medium', new_medium_path %>

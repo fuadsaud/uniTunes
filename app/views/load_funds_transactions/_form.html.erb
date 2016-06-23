@@ -1,19 +1,23 @@
 <%= form_for(@load_funds_transaction) do |f| %>
   <% if @load_funds_transaction.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@load_funds_transaction.errors.count, "error") %> prohibited this load_funds_transaction from being saved:</h2>
-
-      <ul>
-      <% @load_funds_transaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="alert alert-danger">
+          <%= pluralize(@load_funds_transaction.errors.count, "error") %> prohibited this load_funds_transaction from being saved:
+          <ul>
+          <% @load_funds_transaction.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="form-group">
     <%= f.label :amount %>
-    <%= f.number_field :amount %>
-    <%= f.submit %>
+    <div class="input-group">
+        <%= f.number_field :amount, class: 'form-control' %>
+        <div class="input-group-btn">
+            <%= f.submit class: 'btn btn-success' %>
+        </div>
   </div>
 <% end %>
