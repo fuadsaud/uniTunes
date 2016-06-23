@@ -1,0 +1,12 @@
+.devise-links {
+    text-align: center;
+}
+
+.devise-links a:not(:last-child){
+    border-right: 1px solid;
+    padding-right: 10px;
+}
+
+.devise-links a:not(:first-child){
+    padding-left: 10px;
+}
