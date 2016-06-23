@@ -17,7 +17,7 @@ class Medium < ActiveRecord::Base
     greater_than_or_equal_to: 0
   }
 
-  validates_presence_of :title, :description, :category, :author, :media_content_id
+  validates_presence_of :title, :description, :category, :author
 
   def media_content_id=(id)
     media_content_type = MEDIA_CONTENT_TYPES[id.to_i]
