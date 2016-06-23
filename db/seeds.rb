@@ -51,8 +51,8 @@ Song.create!(
   {
     duration: 4,
     medium_attributes: {
-      title: 'Wona',
-      description: 'lalal',
+      title: 'Some Song',
+      description: '',
       price:  0.99,
       author: admin,
       category: Category.find_by(name: 'Jazz'),
@@ -65,8 +65,8 @@ Video.create!(
   {
     duration: 8,
     medium_attributes: {
-      title: 'Moises',
-      description: 'Não consegue',
+      title: 'Some Vide Sample',
+      description: 'Some Video Description',
       price: 1_000_000,
       author: another_user,
       category: Category.find_by(name: 'Documentary'),
@@ -80,7 +80,7 @@ Podcast.create!(
     duration: 45,
     medium_attributes: {
       title: 'Mupoca #49',
-      description: 'mas o que é',
+      description: '',
       price: 0,
       author: another_user,
       category: Category.find_by(name: 'Arts'),
