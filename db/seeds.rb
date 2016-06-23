@@ -112,6 +112,72 @@ Book.create!([
       category: Category.find_by(name: 'Sci-Fi & Fantasy'),
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'http://sites.psu.edu/saupassion2/wp-content/uploads/sites/40606/2016/04/lord-of-the-rings-book-cover.jpg'
+    },
+    {
+    page_count: 600,
+    medium_attributes: {
+      title: 'Em Algum Lugar nas Estrelas',
+      description: "Em Algum Lugar nas Estrelas, da autora norte-americana Clare Vanderpool, é um romance intenso sobre a difícil arte de crescer em um mundo que nem sempre parece satisfeito com a nossa presença. Pelo menos é desse jeito que as coisas têm acontecido para Jack Baker.",
+      price: 35.45,
+      author: another_user,
+      category: Category.find_by(name: 'Kids & Family'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51MazpZa9qL._SX332_BO1,204,203,200_.jpg'
+    },
+    {
+    page_count: 800,
+    medium_attributes: {
+      title: 'Campos de Batalha - Volume 1',
+      description: "Verão, 1942. Enquanto o exército alemão esmaga sua oposição avançando bem fundo na Rússia Soviética e os defensores da Pátria-Mãe batem desbaratados em retirada, um novo esquadrão bombardeiro chega na base aérea.",
+      price: 135.45,
+      author: another_user,
+      category: Category.find_by(name: 'Kids & Family'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51GJnt6Ua0L._SX329_BO1,204,203,200_.jpg'
+    },
+    {
+    page_count: 800,
+    medium_attributes: {
+      title: 'Do Inferno',
+      description: "Verão, 1942. Enquanto o exército alemão esmaga sua oposição avançando bem fundo na Rússia Soviética e os defensores da Pátria-Mãe batem desbaratados em retirada, um novo esquadrão bombardeiro chega na base aérea.",
+      price: 85.0,
+      author: another_user,
+      category: Category.find_by(name: 'Kids & Family'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51d8liekU0L._SX371_BO1,204,203,200_.jpg'
+    },
+    {
+    page_count: 232,
+    medium_attributes: {
+      title: 'Do A Liga Extraordinária. Século-Integral - Volume 1',
+      description: "Outrora houve uma Liga de aventureiros extraordinários. Depois se sucederam cem anos do cruel mundo moderno... E aí não sobrou ninguém.",
+      price: 109.0,
+      author: another_user,
+      category: Category.find_by(name: 'Kids & Family'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/61NyTZaEAqL._SX357_BO1,204,203,200_.jpg'
+    },
+    {
+    page_count: 232,
+    medium_attributes: {
+      title: 'O Orfanato da Srta. Peregrine Para Crianças Peculiares',
+      description: "O livro que deu origem ao filme de Tim Burton! Com estreia marcada para setembro deste ano, o trailer começou a circular nas redes sociais em 15 de março e, até agora, já teve mais de 2,5 milhões de visualizações.",
+      price: 22.9,
+      author: another_user,
+      category: Category.find_by(name: 'Kids & Family'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/513JD1-nalL._SX343_BO1,204,203,200_.jpg'
+    },
+    {
+    page_count: 232,
+    medium_attributes: {
+      title: 'Razão e Sensibilidade. Orgulho e Preconceito. Persuasão',
+      description: "O fascínio que os escritos de Jane Austen exercem, mais do que se manter, torna-se maior no curso do tempo.",
+      price: 40.7,
+      author: another_user,
+      category: Category.find_by(name: 'Kids & Family'),
+      file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
+      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51mA70WBLVL._SX326_BO1,204,203,200_.jpg'
     }
   },
 ])
