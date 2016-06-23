@@ -18,7 +18,7 @@ module Admin
         @user.unlock_access!
       end
 
-      render 'show'
+      redirect_to admin_users_path
     end
 
     private

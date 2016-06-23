@@ -1,4 +1,15 @@
 <h2>Log in</h2>
+
+<% flash.each do |name, msg| %>
+  <% if msg.class == Array %>
+    <% msg.each do |message| %>
+      <%= content_tag :div, message, :id => "flash_#{name}", class: 'alert alert-danger' %>
+    <% end %>
+  <% else %>
+    <%= content_tag :div, msg, :id => "flash_#{name}", class: 'alert alert-danger' %>
+  <% end %>
+<% end %>
+
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
         <div class="card">
