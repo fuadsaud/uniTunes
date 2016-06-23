@@ -1,3 +1,13 @@
 <%= flash_messages %>
-
-<%= @user.email %>
+<h2>Show User</h2>
+<%= link_to 'View Users', admin_users_path, class: 'btn btn-primary pull-sm-right'%>
+<dl>
+    <dt>Name</td>
+    <dd><%= @user.name %></dd>
+    <dt>Email</td>
+    <dd><%= @user.email %></dd>
+    <dt>Creation Date</td>
+    <dd><%= @user.created_at %></dd>
+    <dt>Confirmed?</td>
+    <dd><%= @user.confirmed_at ? 'Yes' : 'No' %></dd>
+</dl>

@@ -2,12 +2,12 @@
 
 <h1>Listing Users</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th colspan="2">Actions</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -16,9 +16,10 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', admin_user_path(user) %></td>
-
-        <td><%= link_to_toggle_user_lock(user) %></td>
+        <td>
+            <%= link_to 'Show', admin_user_path(user) %> |
+            <%= link_to_toggle_user_lock(user) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
