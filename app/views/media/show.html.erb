@@ -2,4 +2,10 @@
 
 <%= image_tag @medium.thumbnail %>
 
+<% if @medium.media_content_type == 'Video' %>
+  <%= video_tag @medium.file, controls: true %>
+<% elsif @medium.media_content_type == 'Book' || @medium.media_content_type == 'Song' %>
+  <%= audio_tag @medium.file, controls: true %>
+<% end %>
+
 <%= render partial: decorate_medium(@medium, current_user), as: :medium %>
