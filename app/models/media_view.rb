@@ -7,7 +7,7 @@ class MediaView
     @media_content_type = media_content_type
     @categories_scope = categories_scope
     @category_id = category_id.try(:to_i)
-    @search_term = search_term
+    @search_term = search_term || ''
   end
 
   def media
