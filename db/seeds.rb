@@ -52,7 +52,7 @@ Song.create!(
     duration: 4,
     medium_attributes: {
       title: 'Some Song',
-      description: '',
+      description: 'some desc',
       price:  0.99,
       author: admin,
       category: Category.find_by(name: 'Jazz'),
@@ -80,7 +80,7 @@ Podcast.create!(
     duration: 45,
     medium_attributes: {
       title: 'Mupoca #49',
-      description: '',
+      description: 'some desc',
       price: 0,
       author: another_user,
       category: Category.find_by(name: 'Arts'),
@@ -113,7 +113,8 @@ Book.create!([
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'http://sites.psu.edu/saupassion2/wp-content/uploads/sites/40606/2016/04/lord-of-the-rings-book-cover.jpg'
     },
-    {
+  },
+  {
     page_count: 600,
     medium_attributes: {
       title: 'Em Algum Lugar nas Estrelas',
@@ -124,7 +125,8 @@ Book.create!([
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51MazpZa9qL._SX332_BO1,204,203,200_.jpg'
     },
-    {
+  },
+  {
     page_count: 800,
     medium_attributes: {
       title: 'Campos de Batalha - Volume 1',
@@ -135,7 +137,8 @@ Book.create!([
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51GJnt6Ua0L._SX329_BO1,204,203,200_.jpg'
     },
-    {
+  },
+  {
     page_count: 800,
     medium_attributes: {
       title: 'Do Inferno',
@@ -146,7 +149,9 @@ Book.create!([
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51d8liekU0L._SX371_BO1,204,203,200_.jpg'
     },
-    {
+  },
+
+  {
     page_count: 232,
     medium_attributes: {
       title: 'Do A Liga Extraordinária. Século-Integral - Volume 1',
@@ -157,7 +162,8 @@ Book.create!([
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/61NyTZaEAqL._SX357_BO1,204,203,200_.jpg'
     },
-    {
+  },
+  {
     page_count: 232,
     medium_attributes: {
       title: 'O Orfanato da Srta. Peregrine Para Crianças Peculiares',
@@ -168,7 +174,8 @@ Book.create!([
       file: 'https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.epub',
       thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/513JD1-nalL._SX343_BO1,204,203,200_.jpg'
     },
-    {
+  },
+  {
     page_count: 232,
     medium_attributes: {
       title: 'Razão e Sensibilidade. Orgulho e Preconceito. Persuasão',
