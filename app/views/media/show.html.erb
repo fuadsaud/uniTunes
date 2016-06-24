@@ -1,3 +1,5 @@
 <%= flash_messages %>
 
+<%= image_tag @medium.thumbnail %>
+
 <%= render partial: decorate_medium(@medium, current_user), as: :medium %>
